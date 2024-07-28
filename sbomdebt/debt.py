@@ -37,7 +37,9 @@ class SBOMdebt:
         if len(package_info) > 0:
             if "tags" in package_info["repo_metadata"]:
                 for release in package_info["repo_metadata"]["tags"]:
-                    name = release["name"].lower().replace("version-", "").replace("v", "")
+                    name = (
+                        release["name"].lower().replace("version-", "").replace("v", "")
+                    )
                     if first_tag is None:
                         first_tag = name
                     date = release["published_at"]
